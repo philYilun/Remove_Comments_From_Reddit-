@@ -5,28 +5,30 @@ Analyzing whether comments got removed from Reddit feeds, an NLP analysis
 The analysis target to use text to predict the comment in reddit to be removed or not <br>
  
 #### Part 1. Draw a baseline for simple regression classifier   <br>
-    - the data showing imbalance sample issue -- fix by downsampling
-    - the outcome showing overfitting with high accuracy(80%) for train and (69%) for test<br>
+- the data showing imbalance sample issue -- fix by downsampling
+- the outcome showing overfitting with high accuracy(80%) for train and (69%) for test<br>
 #### Part 2. Model building and tuning <br>
-Methods with simple normalization <br>
-    - Tf-idf, 
-    - n-gram
-    - characters/words as unit token
-    - change the threshold : min_df, max_feature, stop_words, and scaling  
-    - Using different encodding to deal with foreigh words/characters
-Latent semantic analysis with dimention reduction techniques:  <br>
-    - SVD 
-    - LDA  
-Refining the model by adding derived features <br>
-    - Length of the comment
-    - Whether it include a website, what website is included
-    - whether include number
-    - Number of non-english words, etc.
+a. Methods with simple normalization <br>
+- Tf-idf, 
+- n-gram
+- characters/words as unit token
+- change the threshold : min_df, max_feature, stop_words, and scaling  
+- Using different encodding to deal with foreigh words/characters
+
+b. Latent semantic analysis with dimention reduction techniques:  <br>
+- SVD 
+- LDA  
+ 
+c. Refining the model by adding derived features <br>
+ - Length of the comment
+ - Whether it include a website, what website is included
+ - whether include number
+ - Number of non-english words, etc.
 #### Part 3. <br>
 Using existing word dictionary to distill the corpus <br>
-    - Gensim corpora output is tuple and can not be applied to TF-IDF vectorizer
-    - Build a customized tokenizer, leave only words after lematization that is in the corpora word dictionary
-    - Use trained Word2Vec directly, the model could be another baseline model
+- Gensim corpora output is tuple and can not be applied to TF-IDF vectorizer
+- Build a customized tokenizer, leave only words after lematization that is in the corpora word dictionary
+- Use trained Word2Vec directly, the model could be another baseline model
 
 ### Conclusion:<br>
 The analysis focused on modeling text and predicting the item got removed from the stream or not 
